@@ -1,5 +1,6 @@
 import { Variants } from './palette';
 import { app } from './targets/app';
+import { favo } from './targets/favo';
 import { ghostty } from './targets/ghostty';
 import { herdr } from './targets/herdr';
 import { neovim } from './targets/neovim';
@@ -13,6 +14,7 @@ import { zed } from './targets/zed';
 export function outputs() {
   return [
     ...Variants.flatMap((variant) => [
+      favo(variant),
       ghostty(variant),
       herdr(variant),
       opencode(variant),

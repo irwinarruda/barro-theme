@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 
 const Root = join(import.meta.dir, '..');
 const Folders = {
+  favo: '.favo/themes',
   ghostty: '.config/ghostty/themes',
   herdr: '.config/herdr/themes',
   opencode: '.config/opencode/themes',

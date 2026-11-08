@@ -15,7 +15,7 @@ Use Bun `1.3.14`.
 ## Where things live
 
 - `SPEC.md` is the theme. `palette.json` is the one source of truth for colors.
-- `src/targets/` generates `app/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/barro/palette.lua` and `assets/*palette*.svg`. Edit the target, never the output.
+- `src/targets/` generates `app/`, `favo/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/barro/palette.lua` and `assets/*palette*.svg`. Edit the target, never the output.
 - `APPS.md` is the guideline for websites and apps. Its scales and tokens come from `src/interface.ts`. There is one neutral, slate, taken from the editor's own surfaces.
 - `lua/` and `colors/` are the hand-written Neovim theme. Only the palette table is generated, so a token change there is manual.
 - `vscode/package.json`, `vscode/README.md` and `zed/extension.toml` are hand-written.

@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://github.com/irwinarruda/barro-theme/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/irwinarruda/barro-theme/check.yml?branch=main&label=contrast%20check&labelColor=0B0E11" alt="Contrast check status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-B64D3F?labelColor=0B0E11" alt="MIT license"></a>
-  <img src="https://img.shields.io/badge/Neovim%20%C2%B7%20Vim%20%C2%B7%20VS%20Code%20%C2%B7%20Cursor%20%C2%B7%20Zed%20%C2%B7%20Ghostty%20%C2%B7%20OpenCode%20%C2%B7%20T3%20Code%20%C2%B7%20Herdr-E6EAEF?labelColor=0B0E11" alt="Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr">
+  <img src="https://img.shields.io/badge/Neovim%20%C2%B7%20Vim%20%C2%B7%20VS%20Code%20%C2%B7%20Cursor%20%C2%B7%20Zed%20%C2%B7%20Ghostty%20%C2%B7%20OpenCode%20%C2%B7%20T3%20Code%20%C2%B7%20Herdr%20%C2%B7%20favo-E6EAEF?labelColor=0B0E11" alt="Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code, Herdr and favo">
 </p>
 
 <p align="center">
@@ -65,7 +65,7 @@ Slate clears WCAG AAA, and Kaolin clears AA, for all code. Everything else is in
 
 ## Install
 
-Clone this repository for any app below that copies files, or run `bun run install-themes` from a clone to copy the Ghostty, Zed, OpenCode, T3 Code and Herdr files and install the VS Code and Cursor extension at once.
+Clone this repository for any app below that copies files, or run `bun run install-themes` from a clone to copy the Ghostty, Zed, OpenCode, T3 Code, Herdr and favo files and install the VS Code and Cursor extension at once.
 
 ### Neovim
 
@@ -146,6 +146,10 @@ Copy `t3code/*.json` to `~/.t3/userdata/themes/`, then run `t3 theme set barro-s
 ### Herdr
 
 Paste the contents of `herdr/barro-slate.toml`, or `herdr/barro-kaolin.toml`, into `~/.config/herdr/config.toml`, replacing any `[theme]` section, then run `herdr server reload-config`.
+
+### favo
+
+Copy `favo/*.json` to `~/.favo/themes/`, then run `favo theme barro-slate`, or press `t` in [favo](https://github.com/irwinarruda/favo-cli) to pick one.
 
 ## Apps and websites
 

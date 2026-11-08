@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Barro Slate and Barro Kaolin for favo, as custom themes in `~/.favo/themes`.
+
 ## [0.1.0] - 2026-11-08
 
 ### Added

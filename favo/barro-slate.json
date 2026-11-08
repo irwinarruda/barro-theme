@@ -1,0 +1,17 @@
+{
+  "name": "Barro Slate",
+  "appearance": "dark",
+  "colors": {
+    "background": "#0B0E11",
+    "panel": "#111418",
+    "selection": "#44241F",
+    "border": "#2C3136",
+    "accent": "#EC7D6B",
+    "accentBright": "#FF9C8B",
+    "text": "#E6EAEF",
+    "muted": "#979FA8",
+    "faint": "#5D646B",
+    "success": "#7EC259",
+    "danger": "#E95C5D"
+  }
+}

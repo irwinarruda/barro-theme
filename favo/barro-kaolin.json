@@ -1,0 +1,17 @@
+{
+  "name": "Barro Kaolin",
+  "appearance": "light",
+  "colors": {
+    "background": "#F9FAFC",
+    "panel": "#EFF2F5",
+    "selection": "#F6D8D2",
+    "border": "#D2D6DB",
+    "accent": "#B64D3F",
+    "accentBright": "#A23E31",
+    "text": "#21272D",
+    "muted": "#626A72",
+    "faint": "#878D93",
+    "success": "#3E8200",
+    "danger": "#C92B37"
+  }
+}
