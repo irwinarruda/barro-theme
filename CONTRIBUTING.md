@@ -1,0 +1,40 @@
+# Contributing
+
+New ports and fixes are welcome. [SPEC.md](SPEC.md) is the theme, so most changes start there.
+
+## Setup
+
+You need [Bun](https://bun.sh). There are no dependencies to install.
+
+```sh
+bun run build            # writes every generated file from palette.json
+bun run check            # checks contrast, separation and that generated files are current
+bun run install-themes   # copies the Ghostty, Zed, OpenCode, T3 Code and Herdr files into your home folder, and installs the VS Code and Cursor extension
+```
+
+## What is generated
+
+`palette.json` is the source of truth. Everything in `app/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/barro/palette.lua` and `assets/*palette*.svg`, comes out of `src/targets/`. The app scales are made in `src/interface.ts`. Edit the target, not the output.
+
+The Neovim theme is the exception: the files in `colors/` and `lua/` are written by hand, and only the palette table is generated.
+
+## Adding a port
+
+1. Add a target in `src/targets/` and list it in `src/outputs.ts`, or hand-write the files if the app needs real code.
+2. Follow "Writing a port" in [SPEC.md](SPEC.md).
+3. Add an install section to the README.
+4. Run `bun run build` and `bun run check`.
+
+## Keep it original
+
+Please write ports from the spec and from the app's own public docs. Don't copy from, or adapt, the files of another theme, even an open source one, and never from a paid or proprietary one. Token and group names are fine to use: they belong to the app. The list of which color goes where comes from this spec.
+
+If you change a color, `bun run check` has to stay green. The contrast rules are the reason this theme exists.
+
+## Changelog and releases
+
+Add anything someone using Barro would notice to `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md), in the same commit as the change. A maintainer then releases it by pushing a version tag, which creates the GitHub Release and publishes the extension to the VS Code Marketplace and to Open VSX. The steps are in [AGENTS.md](AGENTS.md).
+
+## Commits
+
+Use [Conventional Commits](https://www.conventionalcommits.org).

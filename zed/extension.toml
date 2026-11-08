@@ -1,0 +1,7 @@
+id = "barro-theme"
+name = "Barro"
+version = "0.1.0"
+schema_version = 1
+authors = ["Irwin Arruda"]
+description = "Clay on slate: Barro Slate for the dark and Barro Kaolin for the light."
+repository = "https://github.com/irwinarruda/barro-theme"

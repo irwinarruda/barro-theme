@@ -1,0 +1,22 @@
+[theme]
+auto_switch = false
+
+[theme.custom]
+accent = "#A23E31"
+panel_bg = "#F9FAFC"
+active_row_bg = "#E7EAED"
+selection_bg = "#F6D8D2"
+surface0 = "#D2D6DB"
+surface1 = "#878D93"
+surface_dim = "#F9FAFC"
+overlay0 = "#878D93"
+overlay1 = "#626A72"
+text = "#21272D"
+subtext0 = "#3B4249"
+mauve = "#8B6600"
+green = "#3E8200"
+yellow = "#8B6600"
+red = "#C92B37"
+blue = "#0076BD"
+teal = "#007973"
+peach = "#C14A3B"

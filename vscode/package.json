@@ -1,0 +1,22 @@
+{
+  "name": "barro-theme",
+  "displayName": "Barro",
+  "description": "Clay on slate: Barro Slate for the dark and Barro Kaolin for the light, with the contrast to read code all day.",
+  "version": "0.1.0",
+  "publisher": "irwinarruda",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": { "color": "#0B0E11", "theme": "dark" },
+  "repository": { "type": "git", "url": "https://github.com/irwinarruda/barro-theme" },
+  "homepage": "https://github.com/irwinarruda/barro-theme#readme",
+  "bugs": { "url": "https://github.com/irwinarruda/barro-theme/issues" },
+  "engines": { "vscode": "^1.70.0" },
+  "categories": ["Themes"],
+  "keywords": ["theme", "dark", "light", "clay", "brick", "slate"],
+  "contributes": {
+    "themes": [
+      { "id": "barro-slate", "label": "Barro Slate", "uiTheme": "vs-dark", "path": "./themes/barro-slate.json" },
+      { "id": "barro-kaolin", "label": "Barro Kaolin", "uiTheme": "vs", "path": "./themes/barro-kaolin.json" }
+    ]
+  }
+}
