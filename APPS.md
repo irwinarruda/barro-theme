@@ -2,6 +2,13 @@
 
 Barro's editor themes put the color in the code and keep everything else quiet. An app works the other way around. Backgrounds, cards, borders and body text cover most of the screen, so they have to be calmer than an editor's, and clay has to be rare to mean anything. This page is how to build a website or an app with Barro.
 
+A product has two kinds of screens, and color works differently on each:
+
+- **App screens** are controls and status: lists, forms, dashboards, settings. Color is rare and means one thing. [Using color](#using-color) is for them.
+- **Reading surfaces** are text someone reads top to bottom: an essay, a chat reply, a note. Color marks what kind of thing each piece of text is, the way it does in code. [Reading surfaces](#reading-surfaces) is for them.
+
+Type, the brand marks and recurring patterns are in [TYPE.md](TYPE.md), [BRAND.md](BRAND.md) and [PATTERNS.md](PATTERNS.md).
+
 <p align="center">
   <img src="assets/app-palette-dark.svg#gh-dark-mode-only" alt="The Barro app palette in dark mode: slate and eight colors, twelve steps each" width="860">
   <img src="assets/app-palette-light.svg#gh-light-mode-only" alt="The Barro app palette in light mode: slate and eight colors, twelve steps each" width="860">
@@ -118,12 +125,46 @@ Each status, `success`, `warning`, `danger` and `info`, comes with five tokens. 
 ## Using color
 
 1. **Slate carries the screen.** Most of what people see should be `page`, `surface`, `fg` and `fg-muted`. If a screen looks red, too much of it is clay.
-2. **Keep clay to one thing per view:** the primary action, or where the reader is. Headings, bullets and decorative icons stay neutral.
+2. **Keep clay to one thing per view:** the primary action, or where the reader is. On app screens, headings, bullets and decorative icons stay neutral. Reading surfaces are the exception, below.
 3. **Primary buttons are brick with white text, in both modes.** The brick is dark enough for white to reach 5:1, so the same button works on the dark page and the light one.
 4. **Status color means something.** Use one status per element, and pair it with an icon or a word. Clay and red are neighbors, so an error has to say it is an error, and color alone fails readers who can't tell hues apart.
 5. **Badges are soft:** `<status>-soft` behind, `<status>` for the text, `<status>-line` around. Solid fills are for the rare alert that must interrupt.
 6. **Color a number only when its sign is the news.** A balance that went negative is `danger`. Amounts in a long list stay `fg`, and the sign does the talking.
 7. **Higher is lighter in dark mode.** In light mode the card is the lightest thing, and the page sits one step below it.
+
+## Reading surfaces
+
+On a reading surface, color says what kind of thing a piece of text is, so a reader can scan it the way they scan code. The jobs are Barro's code roles, carried over from the editor:
+
+| In code     | On a reading surface                          | Token                 |
+| ----------- | --------------------------------------------- | --------------------- |
+| Keywords    | Section headings, the current page            | `primary-fg`, clay 11 |
+| Functions   | Links                                         | `sky-11`              |
+| Types       | Tags, subheadings, the first group of chips   | `teal-11`             |
+| Parameters  | Dates and italics                             | `straw-11`            |
+| Constants   | A second group of chips                       | `lavender-11`         |
+
+Color marks the kind; size and weight mark importance. Keep one color per kind on every page, so a date always looks like a date.
+
+**Three text tones, not one.** Body text sits a step below `fg`, so bold has somewhere to go. When paragraphs are already `fg`, bold barely shows and the page reads flat.
+
+| Tone       | Value                                                                  | Dark      | Light     | On `surface`    |
+| ---------- | ---------------------------------------------------------------------- | --------- | --------- | --------------- |
+| Body       | `color-mix(in oklab, var(--barro-fg) 45%, var(--barro-fg-muted))`      | `#BAC0C7` | `#434A51` | 10.1:1 / 8.6:1  |
+| Bold       | `fg`, weight 700                                                       | `#E6EAEF` | `#21272D` | 15.3:1 / 14.4:1 |
+| Italic     | `straw-11`, italic                                                     | `#F0BF54` | `#876300` | 10.8:1 / 5.3:1  |
+| Details    | `fg-muted`: reading time, descriptions, labels                         | `#979FA8` | `#616971` | 6.9:1 / 5.3:1   |
+
+Define the body tone once on the reading surface's container, for paragraphs, list items and quotes. It is a mix rather than a token, so it works on any palette, Favo included.
+
+A few rules keep this from turning into noise:
+
+- **Only inside the reading surface.** The navigation, buttons and forms around it follow the app rules.
+- **Links are sky here because clay is taken by headings.** On app screens, links stay `primary-fg`.
+- **Status colors keep their meaning.** Red is never decoration, and sage stays success. A straw date is fine inside an essay; on an app screen, straw is a warning.
+- **Code sits on step 1 of slate,** in both modes: `page` in dark mode and `surface` in light mode, with a `line-subtle` border. That is the editor's own background, and the colors Barro Kaolin uses for code are tuned to it. One step darker, on light `page`, the weakest of them fall to 4.25:1.
+
+Live examples: [irwinarruda.com](https://www.irwinarruda.com) for essays, and The Chatbot's replies and notes.
 
 ## Contrast
 
@@ -137,6 +178,7 @@ Each status, `success`, `warning`, `danger` and `info`, comes with five tokens. 
 | `primary-fg` and each status on `page`, `surface` and its soft background | 4.5:1 |
 | Text on `primary`, `primary-hover` and every solid status            | 4.5:1    |
 | `focus` on `surface`                                                  | 3:1      |
+| Reading body, bold and italic on `surface` (not checked by the script) | 4.5:1    |
 
 ## How the scales are made
 

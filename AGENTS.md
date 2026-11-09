@@ -1,6 +1,6 @@
 # barro-theme
 
-Barro is a clay theme with two variants, Barro Slate (dark) and Barro Kaolin (light), ported to Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr. One palette and one spec generate almost everything, and there are no dependencies to install. Its sibling is [favo-theme](https://github.com/irwinarruda/favo-theme), and the two share the same generator and the same rules.
+Barro is a clay theme with two variants, Barro Slate (dark) and Barro Kaolin (light), ported to Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr. It is also the start of Irwin Arruda's design system: the app palette, type, brand marks and patterns that irwinarruda.com and The Chatbot are built from. One palette and one spec generate almost everything, and there are no dependencies to install. Its sibling is [favo-theme](https://github.com/irwinarruda/favo-theme), and the two share the same generator and the same rules.
 
 ## Commands
 
@@ -8,6 +8,7 @@ Use Bun `1.3.14`.
 
 - `bun run build` writes every generated file from `palette.json`.
 - `bun run check` checks contrast, separation and that generated files are current. CI runs it on every pull request, and every release runs it first.
+- `bun run brand:render` redraws every PNG and `.ico` in `brand/` from its SVG. It needs macOS and Google Chrome, and is run by hand after a mark changes.
 - `bun run check:release-version vX.Y.Z` checks that both version files match a tag.
 - `bun run release:notes vX.Y.Z` prints a version's section of `CHANGELOG.md`.
 - `bun run install-themes` copies the theme files into your home folder and installs the extension with `code` and `cursor`. It changes your real setup, so only run it when asked.
@@ -16,7 +17,9 @@ Use Bun `1.3.14`.
 
 - `SPEC.md` is the theme. `palette.json` is the one source of truth for colors.
 - `src/targets/` generates `app/`, `favo/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/barro/palette.lua` and `assets/*palette*.svg`. Edit the target, never the output.
-- `APPS.md` is the guideline for websites and apps. Its scales and tokens come from `src/interface.ts`. There is one neutral, slate, taken from the editor's own surfaces.
+- `APPS.md` is the guideline for websites and apps, including reading surfaces. Its scales and tokens come from `src/interface.ts`. There is one neutral, slate, taken from the editor's own surfaces.
+- `TYPE.md`, `BRAND.md` and `PATTERNS.md` are the rest of the design system: type, the marks, and patterns from the sites that use it. Keep them true to irwinarruda.com and The Chatbot; when a site changes a rule, change the document in the same pass.
+- `src/targets/brand.ts` generates the SVG marks in `brand/`. Mark colors are constants there on purpose, not read from `palette.json`. Never edit or redraw a file in `brand/` by hand. `assets/logo*.svg` and `assets/mark*.svg`, Barro's own logo, are hand-written.
 - `lua/` and `colors/` are the hand-written Neovim theme. Only the palette table is generated, so a token change there is manual.
 - `vscode/package.json`, `vscode/README.md` and `zed/extension.toml` are hand-written.
 

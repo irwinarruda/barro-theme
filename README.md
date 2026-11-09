@@ -15,6 +15,7 @@
   <a href="#install">Install</a> ·
   <a href="#why-barro">Why Barro</a> ·
   <a href="SPEC.md">The spec</a> ·
+  <a href="#the-design-system">Design system</a> ·
   <a href="APPS.md">For apps</a> ·
   <a href="CREDITS.md">Credits</a>
 </p>
@@ -29,7 +30,7 @@
   <img src="assets/palette-kaolin.svg#gh-light-mode-only" alt="Barro Kaolin code colors" width="820">
 </p>
 
-Barro is clay, in Portuguese: the raw stuff that bricks, tiles and pots are shaped from. It started as a personal brand color, a brick on slate, and grew into a theme for everything around it: your editor, your terminal and your coding agents. Its sibling is [Favo](https://github.com/irwinarruda/favo-theme), built the same way. Switch GitHub between dark and light to see both variants.
+Barro is clay, in Portuguese: the raw stuff that bricks, tiles and pots are shaped from. It started as a personal brand color, a brick on slate, and grew into a theme for everything around it: your editor, your terminal and your coding agents. Now it is the start of [Irwin Arruda](https://www.irwinarruda.com)'s design system too, with a palette for apps and websites, type, brand marks and patterns, described in [The design system](#the-design-system). Its sibling is [Favo](https://github.com/irwinarruda/favo-theme), built the same way. Switch GitHub between dark and light to see both variants.
 
 ## Why Barro
 
@@ -151,9 +152,19 @@ Paste the contents of `herdr/barro-slate.toml`, or `herdr/barro-kaolin.toml`, in
 
 Copy `favo/*.json` to `~/.favo/themes/`, then run `favo theme barro-slate`, or press `t` in [favo](https://github.com/irwinarruda/favo-cli) to pick one.
 
-## Apps and websites
+## The design system
 
-Barro has a palette for websites and apps too: slate, twelve steps for every Barro color, and tokens with one job each, ready as CSS, Tailwind and JSON. [APPS.md](APPS.md) has it all.
+The themes are where Barro started. Around them is everything [irwinarruda.com](https://www.irwinarruda.com) and The Chatbot are built from:
+
+| Document                     | What it covers                                                                                   |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ |
+| [SPEC.md](SPEC.md)           | The editor and terminal themes: every color and every token rule                                 |
+| [APPS.md](APPS.md)           | Color in apps and websites: slate, twelve steps for every color, tokens, and reading surfaces    |
+| [TYPE.md](TYPE.md)           | Chakra Petch, JetBrains Mono, Georgia and IBM Plex Sans: what each is for, sizes and loading     |
+| [BRAND.md](BRAND.md)         | The hand-drawn lettering, the Irwin Arruda and The Chatbot marks, icons and avatars              |
+| [PATTERNS.md](PATTERNS.md)   | Navigation, theme switching, focus, chips, lists and cards                                       |
+
+The app palette ships as CSS, Tailwind and JSON in [`app/`](app), and every mark as SVG, PNG and ICO in [`brand/`](brand).
 
 ## Port it
 
