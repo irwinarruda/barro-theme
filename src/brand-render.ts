@@ -9,15 +9,8 @@ const IcoSizes = [16, 32, 48];
 type Job = { source: string; size: number; pngs: [string, number][]; ico?: string };
 
 const Jobs: Job[] = [
-  {
-    source: 'brand/irwin/icon-ia.svg',
-    size: 512,
-    pngs: [
-      ['brand/irwin/icon-ia-512.png', 512],
-      ['brand/irwin/icon-ia-180.png', 180],
-    ],
-    ico: 'brand/irwin/icon-ia.ico',
-  },
+  { source: 'brand/irwin/icon-ia.svg', size: 512, pngs: [['brand/irwin/icon-ia-512.png', 512]], ico: 'brand/irwin/icon-ia.ico' },
+  { source: 'brand/irwin/icon-ia-square.svg', size: 512, pngs: [['brand/irwin/icon-ia-180.png', 180]] },
   {
     source: 'brand/irwin/icon-i.svg',
     size: 512,

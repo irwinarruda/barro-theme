@@ -13,20 +13,50 @@ The marks are not set in a font. Each letter is drawn from straight strokes on o
 
 - **x-height 100 units, ascenders to 152.** Strokes are 20 units wide, with round ends and round joins.
 - **Bowls are half hexagons.** The round parts of `a`, `b`, `c` and `d` turn at 60°, 28.87 units across and 50 up, so even round letters have corners. This is what [Chakra Petch](TYPE.md#why-chakra-petch) echoes.
-- **Letters sit 40 units apart, and a space is 50.**
 - **The prompt chevron, `>`, leads product marks.** It is 26 units wide, a little heavier than the letters.
 
-The drawn letters so far are `a b c d h i n r t u w`. A new word needs its missing letters drawn on the same grid and added to `Glyphs` in `brand.ts`.
+The drawn letters so far are `a b c d f h i n r t u v w`. A new word needs its missing letters drawn on the same grid and added to `Glyphs` in `brand.ts`.
+
+## Spacing
+
+Every mark is spaced by the same rule, so a new word comes out right without tuning. The gap between two letters depends on the shapes that face each other, because a pointed or open side leaves white space of its own. Each letter declares its two sides, and `brand.ts` looks the gap up. Gaps are measured between stroke centers, in units.
+
+| Side    | What it looks like               | Letters                                              |
+| ------- | -------------------------------- | ---------------------------------------------------- |
+| `stem`  | A straight vertical stroke       | Left of `b h i n r u`, right of `a d h i n u`        |
+| `point` | A bowl's corner, at mid height   | Left of `a c d`, right of `b`                        |
+| `bar`   | The tip of a crossbar            | Left of `f t`                                        |
+| `arm`   | A stroke at the top, empty below | Right of `f r`                                       |
+| `open`  | Arms at the top and the bottom   | Right of `c t`                                       |
+| `diag`  | A diagonal stroke                | Both sides of `v w`                                  |
+
+| Left letter ends in | Then `stem` | Then `point` | Then `bar` | Then `diag` |
+| ------------------- | ----------- | ------------ | ---------- | ----------- |
+| `stem`              | 38          | 34           | 32         | 36          |
+| `point`             | 34          | 30           | 30         | 32          |
+| `arm`               | 34          | 18           | 30         | 34          |
+| `open`              | 34          | 30           | 30         | 32          |
+| `diag`              | 36          | 28           | 30         | 30          |
+
+- **Two straight strokes sit 38 apart.** Everything else is tighter, by how much white the shapes already leave.
+- **A point tucks under an arm,** which is why `fa` is only 18.
+- **After the chevron,** a `stem` starts 84 from its tip, a `point` or a `bar` 69, and a `diag` 72. In a mark, the shape starts 48.82 from the tip.
+- **Around a shape,** each shape lists its own gaps in `brand.ts`: the hexagon tucks into `v` at 5.59, the block sits 25.76 after `r`, and the bubble sits 22 after `b` and 24 before `t`.
+- **A space between words is 46,** on top of the letter gap.
+
+Favo's logo was set by hand and is the reference: the table reproduces it exactly, and Barro, The Chatbot and Irwin Arruda follow it.
 
 ## Two families of marks
 
 **Products** are the chevron, the name, and a last `o` replaced by a solid shape that says what the product is:
 
-| Product     | The `o`                 | Where                                                       |
-| ----------- | ----------------------- | ----------------------------------------------------------- |
-| Barro       | A brick block           | [`assets/logo.svg`](assets/logo.svg), drawn by hand         |
-| Favo        | A honeycomb cell        | [favo-theme](https://github.com/irwinarruda/favo-theme)     |
-| The Chatbot | A round speech bubble   | [`brand/chatbot/`](brand/chatbot)                           |
+| Product     | The `o`                                  | Where                                                                                           |
+| ----------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Favo        | A honeycomb cell                         | [`brand/favo/`](brand/favo), the same drawing [favo-theme](https://github.com/irwinarruda/favo-theme) ships |
+| Barro       | A brick block                            | [`assets/logo.svg`](assets/logo.svg) and `assets/mark.svg`                                      |
+| The Chatbot | A round speech bubble with a 60° tail    | [`brand/chatbot/`](brand/chatbot)                                                               |
+
+Each shape is as tall as a letter with its stroke, 120 units. The block is 112, because a rectangle looks bigger than a round shape of the same height. The bubble stays a full circle so it still reads as an `o`, and its tail is cut at 60° like the letters.
 
 **Irwin Arruda**, the personal mark, has no chevron. The dot of the first `i` is a brick square, and that dot is the signature: it is the only brick in the mark.
 
@@ -45,7 +75,8 @@ The drawn letters so far are `a b c d h i n r t u w`. A new word needs its missi
 | `irwin.svg`, `irwin-dark.svg`, `irwin-light.svg`                      | The short form, `irwin`           | Nothing yet. It hides the `a` the favicon needs |
 | `ia.svg`, `ia-dark.svg`, `ia-light.svg`                               | The `ia` monogram                 | Nothing yet                                   |
 | `i.svg`, `i-dark.svg`, `i-light.svg`                                  | The `i` monogram                  | Nothing yet                                   |
-| `icon-ia.svg`, `icon-ia.ico`, `icon-ia-180.png`, `icon-ia-512.png`    | `ia` on a slate tile              | The favicon, the touch icon and the social image |
+| `icon-ia.svg`, `icon-ia.ico`, `icon-ia-512.png`                       | `ia` on a rounded slate tile      | The favicon and the social image              |
+| `icon-ia-square.svg`, `icon-ia-180.png`                               | The same tile, square             | The iPhone and iPad home screen               |
 | `icon-i.svg`, `icon-i.ico`, `icon-i-180.png`, `icon-i-512.png`        | `i` on a slate tile               | Nothing yet                                   |
 
 ## The Chatbot
@@ -60,8 +91,8 @@ The drawn letters so far are `a b c d h i n r t u w`. A new word needs its missi
 
 ## Rules for icons and avatars
 
-- **Tiles are 512 units with a corner radius of 112,** about 22%, and the mark fills about two thirds of the width.
-- **Touch icons are square.** iOS rounds the corners itself, and transparent corners turn black. The Chatbot's is square; `icon-ia-180.png` still has rounded corners and should move to a square tile next time it changes.
+- **Tiles are 512 units with a corner radius of 112,** about 22%, and the mark fills about three quarters of the width, so it still reads at 16 px.
+- **Touch icons are square.** iOS rounds the corners itself, and transparent corners turn black.
 - **Avatars are full squares** with the mark at about half the width, so a circle crop never touches it.
 - **Favicons carry 16, 32 and 48 px** in one `.ico`, beside the SVG icon.
 

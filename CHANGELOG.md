@@ -9,6 +9,10 @@
 - TYPE.md, BRAND.md and PATTERNS.md, which document the type, the brand marks and the patterns built on Barro.
 - The Irwin Arruda and The Chatbot marks, icons and avatars in `brand/`, as SVG, PNG and ICO.
 
+### Changed
+
+- Barro's logo is spaced by the same rule as the rest of the family: the letters sit closer to the `>` and `b` sits closer to `a`.
+
 ## [0.1.0] - 2026-11-08
 
 ### Added

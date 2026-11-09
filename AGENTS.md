@@ -19,7 +19,7 @@ Use Bun `1.3.14`.
 - `src/targets/` generates `app/`, `favo/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/barro/palette.lua` and `assets/*palette*.svg`. Edit the target, never the output.
 - `APPS.md` is the guideline for websites and apps, including reading surfaces. Its scales and tokens come from `src/interface.ts`. There is one neutral, slate, taken from the editor's own surfaces.
 - `TYPE.md`, `BRAND.md` and `PATTERNS.md` are the rest of the design system: type, the marks, and patterns from the sites that use it. Keep them true to irwinarruda.com and The Chatbot; when a site changes a rule, change the document in the same pass.
-- `src/targets/brand.ts` generates the SVG marks in `brand/`. Mark colors are constants there on purpose, not read from `palette.json`. Never edit or redraw a file in `brand/` by hand. `assets/logo*.svg` and `assets/mark*.svg`, Barro's own logo, are hand-written.
+- `src/targets/brand.ts` generates every mark: Barro's own logo in `assets/logo*.svg` and `assets/mark*.svg`, and Favo's, The Chatbot's and Irwin Arruda's in `brand/`. One spacing table in that file sets all of them, and `BRAND.md` explains it. Mark colors are constants there on purpose, not read from `palette.json`. Never edit or redraw one of these files by hand.
 - `lua/` and `colors/` are the hand-written Neovim theme. Only the palette table is generated, so a token change there is manual.
 - `vscode/package.json`, `vscode/README.md` and `zed/extension.toml` are hand-written.
 
