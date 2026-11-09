@@ -47,7 +47,7 @@ To re-run a failed release, use `gh workflow run release.yml --ref vX.Y.Z -f tag
 - No merge commits. Bring a branch up to date with `git rebase`, and land a pull request by rebase.
 - Write ports from `SPEC.md` and the app's public docs, never from another theme's files. Token and scope names belong to the app, and which color goes where comes from the spec.
 - Check VS Code scopes against the grammars that ship with the app, because scope lists in other themes go stale.
-- `danger` is its own role: errors, removed lines and the terminal's red. `regex` is only for patterns. Clay sits in the red-orange range, so a shared red would make errors look like keywords. Keep them apart in every port.
+- `danger` is its own role: errors, removed lines and the terminal's red. `regex` is only for patterns. Clay sits in the red-orange range, so a shared red would make errors look like keywords. Keep them apart in every port. `danger` stays a plain red: a hue shifted toward pink to gain distance from clay stops reading as an error.
 - Buttons are brick with white text in both variants: `fill` with `onFill`, and the app's `primary` with `on-primary`. Hover goes darker, never lighter, so white stays readable. `bun run check` fails if white drops below 4.5:1 on any of them.
 - VS Code's current find match is `selection` with an `accent` border, not the spec's `fill` with `onFill`, on purpose. `editor.findMatchForeground` and `editor.findMatchHighlightForeground` were swapped through VS Code 1.144 and still are in Cursor, and no pair of values reads well under both. Keep it until Cursor has the fix.
 - `faint` is deliberately low contrast. Use it only for text a reader can safely ignore.

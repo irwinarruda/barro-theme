@@ -101,8 +101,10 @@ Each token is a CSS variable, `--barro-<token>`, and a Tailwind color of the sam
 | `line-subtle`   | 6          | 6          | Separators inside a card                         |
 | `line`          | 7          | 7          | Borders of cards and inputs                      |
 | `line-strong`   | 8          | 8          | Hovered inputs, strong dividers                  |
+| `line-control`  | 9          | 9          | A 3:1 border, for a control that has no fill to show where it is |
 | `fg`            | 12         | 12         | Text                                             |
 | `fg-muted`      | 11         | 11         | Labels, dates and other secondary text           |
+| `fg-reading`    | 12 and 11, mixed | 12 and 11, mixed | Body text on a reading surface      |
 | `fg-faint`      | 9          | 9          | Placeholders and disabled text                   |
 | `primary`       | clay 9     | clay 9     | Primary buttons                                  |
 | `primary-hover` | clay 10    | clay 10    | Primary buttons, hovered                         |
@@ -127,7 +129,7 @@ Each status, `success`, `warning`, `danger` and `info`, comes with five tokens. 
 1. **Slate carries the screen.** Most of what people see should be `page`, `surface`, `fg` and `fg-muted`. If a screen looks red, too much of it is clay.
 2. **Keep clay to one thing per view:** the primary action, or where the reader is. On app screens, headings, bullets and decorative icons stay neutral. Reading surfaces are the exception, below.
 3. **Primary buttons are brick with white text, in both modes.** The brick is dark enough for white to reach 5:1, so the same button works on the dark page and the light one.
-4. **Status color means something.** Use one status per element, and pair it with an icon or a word. Clay and red are neighbors, so an error has to say it is an error, and color alone fails readers who can't tell hues apart.
+4. **Status color means something.** Use one status per element, and pair it with an icon or a word. Clay and red are neighbors, and red stays a plain red because that is what reads as an error. So an error has to say it is an error, and color alone fails readers who can't tell hues apart.
 5. **Badges are soft:** `<status>-soft` behind, `<status>` for the text, `<status>-line` around. Solid fills are for the rare alert that must interrupt.
 6. **Color a number only when its sign is the news.** A balance that went negative is `danger`. Amounts in a long list stay `fg`, and the sign does the talking.
 7. **Higher is lighter in dark mode.** In light mode the card is the lightest thing, and the page sits one step below it.
@@ -140,13 +142,13 @@ An essay, a chat reply or a note is read top to bottom, and there color marks wh
 | ------------------------------------------- | --------------------- | --------- | --------- |
 | Section headings, the current page          | `primary-fg`, clay 11 | `#EC7D6B` | `#B74133` |
 | Links                                       | `sky-11`              | `#5DB0F5` | `#006EB0` |
-| Tags, subheadings, the first group of chips | `teal-11`             | `#46D4C9` | `#007771` |
+| Tags, subheadings, the first group of chips | `teal-11`             | `#46D4C9` | `#017671` |
 | Dates and italics                           | `straw-11`            | `#F0BF54` | `#876300` |
 | A second group of chips                     | `lavender-11`         | `#C1A4FF` | `#7B53BE` |
-| Body text                                   | `color-mix(in oklab, var(--barro-fg) 45%, var(--barro-fg-muted))` | `#BAC0C7` | `#434A51` |
+| Body text                                   | `fg-reading`          | `#BAC0C7` | `#434A51` |
 | Bold                                        | `fg`, weight 700      | `#E6EAEF` | `#21272D` |
 
-Body text sits a step below `fg` so bold has somewhere to go. Code sits on step 1 of slate in both modes, `page` in dark and `surface` in light, because Barro Kaolin's code colors are tuned to it: one step darker, the weakest fall to 4.25:1. Outside the reading surface, the rules above still hold.
+Body text sits a step below `fg` so bold has somewhere to go: `fg-reading` is `fg` and `fg-muted` mixed 45 to 55. Code sits on step 1 of slate in both modes, `page` in dark and `surface` in light, because Barro Kaolin's code colors are tuned to it: one step darker, the weakest fall to 4.25:1. Outside the reading surface, the rules above still hold.
 
 ## Contrast
 
@@ -157,10 +159,11 @@ Body text sits a step below `fg` so bold has somewhere to go. Code sits on step 
 | `fg` on `page`, `surface`, `raised`, `hover`, `pressed` and `overlay` | 7:1      |
 | `fg-muted` on `page`, `surface`, `raised`, `hover` and `overlay`      | 4.5:1    |
 | `fg-faint` on `surface`                                               | 3:1      |
-| `primary-fg` and each status on `page`, `surface` and its soft background | 4.5:1 |
+| `fg-reading` on `page`, `surface`, `raised`, `hover` and `overlay`    | 7:1      |
+| Step 11 of every color on `page`, `surface`, `raised`, `hover`, `overlay` and its own step 3 | 4.5:1 |
 | Text on `primary`, `primary-hover` and every solid status            | 4.5:1    |
 | `focus` on `surface`                                                  | 3:1      |
-| Reading body, bold and italic on `surface` (not checked by the script) | 4.5:1    |
+| `line-control` on `page`, `surface` and `raised`                      | 3:1      |
 
 ## How the scales are made
 
@@ -168,4 +171,4 @@ Everything here is generated by [`src/interface.ts`](src/interface.ts) from [`pa
 
 - **Slate** takes its lightness, hue and color from the editor's surfaces at steps 1, 2, 3, 6, 9, 11 and 12, and fills the steps between. It keeps the editor's exact colors at steps 1, 2, 3, 6 and 12.
 - **Each color** takes its hue from its code color. Steps 1 to 8 sit at slate's lightness with a little more color each step. Step 9 is a solid at the same lightness across every color, dark enough for white text; clay's steps 9 and 10 are the editor's `fill` and `fillHover`, and straw's solid is light instead. Step 11 is the code color.
-- **Secondary text and light step 11** are darkened just enough to pass the contrast rules above.
+- **Secondary text and light step 11** are darkened just enough to pass the contrast rules above. The darkest surface text can sit on decides, a hovered row in light mode, so on a card it has room to spare.

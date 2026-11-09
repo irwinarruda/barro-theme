@@ -138,6 +138,7 @@
   --color-line-subtle: var(--barro-line-subtle);
   --color-line: var(--barro-line);
   --color-line-strong: var(--barro-line-strong);
+  --color-line-control: var(--barro-line-control);
   --color-fg: var(--barro-fg);
   --color-fg-muted: var(--barro-fg-muted);
   --color-fg-faint: var(--barro-fg-faint);
@@ -168,4 +169,5 @@
   --color-info-line: var(--barro-info-line);
   --color-info-solid: var(--barro-info-solid);
   --color-on-info: var(--barro-on-info);
+  --color-fg-reading: var(--barro-fg-reading);
 }

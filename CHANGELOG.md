@@ -5,10 +5,12 @@
 ### Added
 
 - Barro Slate and Barro Kaolin for favo, as custom themes in `~/.favo/themes`.
+- Two tokens for apps: `fg-reading`, the body text of an essay or a chat reply, and `line-control`, a 3:1 border for a control that has no fill.
 - Reading surfaces in APPS.md: which Barro colors mark headings, links, tags, dates, body text and bold on essays, chat replies and notes.
 
 ### Changed
 
+- In apps, colored text in light mode is a little darker, so it stays readable on a hovered row too.
 - Barro's logo is spaced by the same rule as the rest of its family: the letters sit closer to the `>` and `b` sits closer to `a`.
 - Barro is now one of the themes of [irwin-ui](https://github.com/irwinarruda/irwin-ui), where type, brand marks and patterns are documented.
 

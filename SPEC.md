@@ -63,7 +63,7 @@ Hover goes darker in both variants, so white text stays readable on it.
 | `param`    | `#F0BF54` | `#8B6600` | straw    | Values passed in          |
 | `regex`    | `#FF8DC2` | `#B23578` | rose     | Patterns                  |
 
-`danger` is not a code color. Clay already sits in the red-orange range, so errors get a red of their own instead of sharing one with patterns, and a problem never looks like a keyword.
+`danger` is not a code color. Clay already sits in the red-orange range, so errors get a red of their own instead of sharing one with patterns, and a problem never looks like a keyword. It stays a plain red, because that is what people read as an error. It is close to clay, so an error also carries an icon, a word or its place on the screen.
 
 ### Terminal
 
