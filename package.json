@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "build": "bun src/build.ts",
-    "brand:render": "bun src/brand-render.ts",
     "check": "bun src/check.ts",
     "check:release-version": "bun src/check-release-version.ts",
     "install-themes": "bun src/install.ts",

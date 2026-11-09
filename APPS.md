@@ -7,7 +7,7 @@ A product has two kinds of screens, and color works differently on each:
 - **App screens** are controls and status: lists, forms, dashboards, settings. Color is rare and means one thing. [Using color](#using-color) is for them.
 - **Reading surfaces** are text someone reads top to bottom: an essay, a chat reply, a note. Color marks what kind of thing each piece of text is, the way it does in code. [Reading surfaces](#reading-surfaces) is for them.
 
-Type, the brand marks and recurring patterns are in [TYPE.md](TYPE.md), [BRAND.md](BRAND.md) and [PATTERNS.md](PATTERNS.md).
+Barro is one of the themes of [irwin-ui](https://github.com/irwinarruda/irwin-ui), Irwin Arruda's design system. Type, the brand marks and recurring patterns are documented there, and they are the same whichever theme a product uses.
 
 <p align="center">
   <img src="assets/app-palette-dark.svg#gh-dark-mode-only" alt="The Barro app palette in dark mode: slate and eight colors, twelve steps each" width="860">
@@ -134,37 +134,19 @@ Each status, `success`, `warning`, `danger` and `info`, comes with five tokens. 
 
 ## Reading surfaces
 
-On a reading surface, color says what kind of thing a piece of text is, so a reader can scan it the way they scan code. The jobs are Barro's code roles, carried over from the editor:
+An essay, a chat reply or a note is read top to bottom, and there color marks what kind of thing each piece of text is, the way it does in code. This is a rule of [irwin-ui](https://github.com/irwinarruda/irwin-ui/blob/main/COLOR.md#reading-surfaces), the design system Barro belongs to, and that page has the reasoning. In Barro it comes to this:
 
-| In code     | On a reading surface                          | Token                 |
-| ----------- | --------------------------------------------- | --------------------- |
-| Keywords    | Section headings, the current page            | `primary-fg`, clay 11 |
-| Functions   | Links                                         | `sky-11`              |
-| Types       | Tags, subheadings, the first group of chips   | `teal-11`             |
-| Parameters  | Dates and italics                             | `straw-11`            |
-| Constants   | A second group of chips                       | `lavender-11`         |
+| On a reading surface                        | Token                 | Dark      | Light     |
+| ------------------------------------------- | --------------------- | --------- | --------- |
+| Section headings, the current page          | `primary-fg`, clay 11 | `#EC7D6B` | `#B74133` |
+| Links                                       | `sky-11`              | `#5DB0F5` | `#006EB0` |
+| Tags, subheadings, the first group of chips | `teal-11`             | `#46D4C9` | `#007771` |
+| Dates and italics                           | `straw-11`            | `#F0BF54` | `#876300` |
+| A second group of chips                     | `lavender-11`         | `#C1A4FF` | `#7B53BE` |
+| Body text                                   | `color-mix(in oklab, var(--barro-fg) 45%, var(--barro-fg-muted))` | `#BAC0C7` | `#434A51` |
+| Bold                                        | `fg`, weight 700      | `#E6EAEF` | `#21272D` |
 
-Color marks the kind; size and weight mark importance. Keep one color per kind on every page, so a date always looks like a date.
-
-**Three text tones, not one.** Body text sits a step below `fg`, so bold has somewhere to go. When paragraphs are already `fg`, bold barely shows and the page reads flat.
-
-| Tone       | Value                                                                  | Dark      | Light     | On `surface`    |
-| ---------- | ---------------------------------------------------------------------- | --------- | --------- | --------------- |
-| Body       | `color-mix(in oklab, var(--barro-fg) 45%, var(--barro-fg-muted))`      | `#BAC0C7` | `#434A51` | 10.1:1 / 8.6:1  |
-| Bold       | `fg`, weight 700                                                       | `#E6EAEF` | `#21272D` | 15.3:1 / 14.4:1 |
-| Italic     | `straw-11`, italic                                                     | `#F0BF54` | `#876300` | 10.8:1 / 5.3:1  |
-| Details    | `fg-muted`: reading time, descriptions, labels                         | `#979FA8` | `#616971` | 6.9:1 / 5.3:1   |
-
-Define the body tone once on the reading surface's container, for paragraphs, list items and quotes. It is a mix rather than a token, so it works on any palette, Favo included.
-
-A few rules keep this from turning into noise:
-
-- **Only inside the reading surface.** The navigation, buttons and forms around it follow the app rules.
-- **Links are sky here because clay is taken by headings.** On app screens, links stay `primary-fg`.
-- **Status colors keep their meaning.** Red is never decoration, and sage stays success. A straw date is fine inside an essay; on an app screen, straw is a warning.
-- **Code sits on step 1 of slate,** in both modes: `page` in dark mode and `surface` in light mode, with a `line-subtle` border. That is the editor's own background, and the colors Barro Kaolin uses for code are tuned to it. One step darker, on light `page`, the weakest of them fall to 4.25:1.
-
-Live examples: [irwinarruda.com](https://www.irwinarruda.com) for essays, and The Chatbot's replies and notes.
+Body text sits a step below `fg` so bold has somewhere to go. Code sits on step 1 of slate in both modes, `page` in dark and `surface` in light, because Barro Kaolin's code colors are tuned to it: one step darker, the weakest fall to 4.25:1. Outside the reading surface, the rules above still hold.
 
 ## Contrast
 

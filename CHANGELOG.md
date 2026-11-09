@@ -5,13 +5,12 @@
 ### Added
 
 - Barro Slate and Barro Kaolin for favo, as custom themes in `~/.favo/themes`.
-- Reading surfaces in APPS.md: how color, body text, bold, italics and code work on essays, chat replies and notes.
-- TYPE.md, BRAND.md and PATTERNS.md, which document the type, the brand marks and the patterns built on Barro.
-- The Irwin Arruda and The Chatbot marks, icons and avatars in `brand/`, as SVG, PNG and ICO.
+- Reading surfaces in APPS.md: which Barro colors mark headings, links, tags, dates, body text and bold on essays, chat replies and notes.
 
 ### Changed
 
-- Barro's logo is spaced by the same rule as the rest of the family: the letters sit closer to the `>` and `b` sits closer to `a`.
+- Barro's logo is spaced by the same rule as the rest of its family: the letters sit closer to the `>` and `b` sits closer to `a`.
+- Barro is now one of the themes of [irwin-ui](https://github.com/irwinarruda/irwin-ui), where type, brand marks and patterns are documented.
 
 ## [0.1.0] - 2026-11-08
 

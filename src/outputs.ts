@@ -1,6 +1,5 @@
 import { Variants } from './palette';
 import { app } from './targets/app';
-import { brand } from './targets/brand';
 import { favo } from './targets/favo';
 import { ghostty } from './targets/ghostty';
 import { herdr } from './targets/herdr';
@@ -25,7 +24,6 @@ export function outputs() {
       vscode(variant),
     ]),
     ...app(),
-    ...brand(),
     neovim(),
     zed(),
   ];
