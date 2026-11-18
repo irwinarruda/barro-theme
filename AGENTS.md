@@ -18,7 +18,7 @@ Use Bun `1.3.14`.
 - `src/targets/` generates `app/`, `favo/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/barro/palette.lua` and `assets/*palette*.svg`. Edit the target, never the output.
 - `APPS.md` is the guideline for websites and apps, including reading surfaces. Its scales and tokens come from `src/interface.ts`. There is one neutral, slate, taken from the editor's own surfaces.
 - Standards that hold for every theme live in irwin-ui, not here: how color is used on app screens and reading surfaces, type, the brand marks and patterns. Keep here only what is Barro's own: the palette, the spec, the ports and the guide to its app colors.
-- `assets/logo*.svg` and `assets/mark*.svg` are copies of irwin-ui's `brand/barro/`, where every mark of the family is generated. Never edit or redraw them here: change the mark in irwin-ui and copy it. `vscode/icon.png` is `mark.svg` rendered at 512 px.
+- `assets/logo*.svg`, `assets/mark*.svg` and `assets/icon.svg` are copies of irwin-ui's `brand/barro/`, where every mark of the family is generated. Never edit or redraw them here: change the mark in irwin-ui and copy it. `vscode/icon.png` is `mark.svg` rendered at 512 px. `t3.json` points T3 Code at `icon.svg`, the mark on a slate tile, so the project matches the other apps in its sidebar.
 - `lua/` and `colors/` are the hand-written Neovim theme. Only the palette table is generated, so a token change there is manual.
 - `vscode/package.json`, `vscode/README.md` and `zed/extension.toml` are hand-written.
 
